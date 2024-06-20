@@ -139,221 +139,226 @@ length_of_author_quote = len(author_quote)
 
 # Now that we have a list of quotes that we can generate ranomly, we can now ask the user if they want to see a quote.
 # This idea and this program is a gift for my wife. So I actually asked her for some author names and I used those to search for quotes. Which is why the prompt mentions favourite book.
-
-first_prompt = input("Would you like to see a quote from your favourite book? (y or n): ")
-print()
-print()
-
-if first_prompt == "y":
-    random_quote_number = random.randint(0,length_of_author_quote)
-   
-   # This is how we know which author is the correct one.
-
-    cs_lewis = 0 <= random_quote_number <= 8
-    p_coelho = 9 <= random_quote_number <= 27
-    jk_rowling = 28 <= random_quote_number <38
-    s_king = 38 <= random_quote_number <= 48
-    n_gaiman = 49 <= random_quote_number <= 58
-    j_austen = 59 <= random_quote_number <= 66
-    h_murakami = 67 <= random_quote_number <= 77
-    jrr_tolkien = 78 <= random_quote_number <= 84
-    m_haddon = 85 <= random_quote_number <= 90
-    j_green = 91 <= random_quote_number <=98
-
-    print(author_quote[random_quote_number])
-    for i in range(3):
-        print()
-
-    # After we show the user a quote that is randomly generated, we ask if the user wants to play a game where they can try to guess the author.
-    # This is the tricky part.
-
-    game = input("Would you like to guess the author for this quote? (y or n): ")
-    if game == "y":
-        
-        # I used the index number information to create conditions with booleans so that the program knows which author is the correct one.
-        if cs_lewis:
-            author = "C.S. Lewis"
-        elif p_coelho:
-            author = "Paulo Coelho"
-        elif jk_rowling:
-            author = "J.K. Rowling"
-        elif s_king:
-            author = "Stephen King"
-        elif n_gaiman:
-            author = "Neil Gaiman"
-        elif j_austen:
-            author = "Jane Austen"
-        elif h_murakami:
-            author = "Haruki Murakami"
-        elif jrr_tolkien:
-            author = "J.R.R. Tolkien"
-        elif m_haddon:
-            author = "Mark Haddon"
-        elif j_green:
-            author = "John Green"
-
-        # For this section, I created 4 random lists. The author names are inside the 4 different lists, but spread out along with random author names that are not actually quoted.
-
-        # For each list, the program will check if the correct author is in the list, if it is, that option will be the correct one.
-        # If it's not in the list, it will generate a different random author that is not the correct answer as part of the Multiple Choice Question.
-        
-        list_for_mcq1 = ["Stephen King", "Neil Gaiman", "J.R.R. Tolkien", "Mark Haddon","Suzanne Collins", "Ernest Cline", "Orson Scott Card"]
-        list_for_mcq2 = ["Dan Brown" , "Paulo Coelho", "James Rollins", "J.K. Rowling", "Charlotte Bronte", "Matt Haig", "Salman Rushdie"]
-        list_for_mcq3 = ["C.S. Lewis", "Sir Arthur Conan Doyle", "Jane Austen", "John Green", "John Grisham","Nicholas Sparks", "F. Scott Fitzgerald"]
-        list_for_mcq4 = ["Harlan Coben", "Haruki Murakami", "Khaled Hossaini", "Chuck Palahnuik", "Kazuo Ishiguro", "Gabriel Garcia Maruez"]
-        
-
-        if author in list_for_mcq1:
-            print()
-            print("Who do you think is the author of this quote?")
-            print()
-            print("a. " + author)
-            length_of_mcq_answers2 = len(list_for_mcq2)
-            length_of_mcq_answers3 = len(list_for_mcq3)
-            length_of_mcq_answers4 = len(list_for_mcq4)
-            random_author2 = list_for_mcq2[random.randint(0,length_of_mcq_answers2-1)]
-            print("b. " + random_author2)
-            random_author3 = list_for_mcq3[random.randint(0,length_of_mcq_answers3-1)]
-            print("c. " + random_author3)
-            random_author4 = list_for_mcq4[random.randint(0,length_of_mcq_answers4-1)]
-            print("d. " + random_author4)
-            user_guess = input("answer either a, b, c or d: ")
-
-            if user_guess == "a":
-                print("Correct!")
-                print()
-                print()
-                print()
-                print("Thank you for playing!")
-            else:
-                print()
-                print()
-                print("Incorrect!")
-                print()
-                print("The author of this quote is " + author + ".")
-                print("That was a good try! Thank you for playing")
-                print()
-                print()
-
-        # The program ends like this. I did not put an endless loop to the program. I prefer it this way. If the user would like to try the quote engine again, the program has to be restarted.
-
-        elif author in list_for_mcq2:
-            print()
-            print("Who do you think is the author of this quote?")
-            print()
-            length_of_mcq_answers1 = len(list_for_mcq1)
-            length_of_mcq_answers3 = len(list_for_mcq3)
-            length_of_mcq_answers4 = len(list_for_mcq4)
-            random_author1 = list_for_mcq1[random.randint(0,length_of_mcq_answers1-1)]
-            print("a. " + random_author1)
-            
-            print("b. " + author)
-            random_author3 = list_for_mcq3[random.randint(0,length_of_mcq_answers3-1)]
-            print("c. " + random_author3)
-            random_author4 = list_for_mcq4[random.randint(0,length_of_mcq_answers4-1)]
-            print("d. " + random_author4)
-
-            user_guess = input("answer either a, b, c or d: ")
-
-            if user_guess == "b":
-                print("Correct!")
-                print()
-                print()
-                print()
-                print("Thank you for playing!")
-            else:
-                print()
-                print()
-                print("Incorrect!")
-                print()
-                print("The author of this quote is " + author + ".")
-                print("That was a good try! Thank you for playing!")
-                print()
-                print()
-
-        # As mentioned before, if the name of the author is in list 1, the first program executes. If it's in list 2, the second program exectes, and so on and so forth. 
-        # This is a little primapive and not automated enough for a super simple program, however the randomly generated author names of the multiple choice question allows the game to still be interesting.
-
-        elif author in list_for_mcq3:
-            print()
-            print("Who do you think is the author of this quote?")
-            print()
-            length_of_mcq_answers1 = len(list_for_mcq1)
-            length_of_mcq_answers2 = len(list_for_mcq2)
-            length_of_mcq_answers4 = len(list_for_mcq4)
-            random_author1 = list_for_mcq1[random.randint(0,length_of_mcq_answers1-1)]
-            print("a. " + random_author1)
-            random_author2 = list_for_mcq2[random.randint(0,length_of_mcq_answers2-1)]
-            print("b. " + random_author2)
-            
-            print("c. " + author)
-            random_author4 = list_for_mcq4[random.randint(0,length_of_mcq_answers4-1)]
-            print("d. " + random_author4)
-            user_guess = input("answer either a, b, c or d: ")
-
-            if user_guess == "c":
-                print("Correct!")
-                print()
-                print()
-                print()
-                print("Thank you for playing!")
-            else:
-                print()
-                print()
-                print("Incorrect!")
-                print()
-                print("The author of this quote is " + author + ".")
-                print("That was a good try! Thank you for playing")
-                print()
-                print()
-
-        if author in list_for_mcq4:
-            print()
-            print("Who do you think is the author of this quote?")
-            print()
-            length_of_mcq_answers1 = len(list_for_mcq1)
-            length_of_mcq_answers2 = len(list_for_mcq2)
-            length_of_mcq_answers3 = len(list_for_mcq3)
-            random_author1 = list_for_mcq1[random.randint(0,length_of_mcq_answers1-1)]
-            print("a. " + random_author1)
-            random_author2 = list_for_mcq2[random.randint(0,length_of_mcq_answers2-1)]
-            print("b. " + random_author2)
-            random_author3 = list_for_mcq3[random.randint(0,length_of_mcq_answers3-1)]
-            print("c. " + random_author3)
+while play_again:
+    first_prompt = input("Would you like to see a quote from your favourite book? (y or n): ")
+    print()
+    print()
     
-            print("d. " + author)
-
-            user_guess = input("answer either a, b, c or d: ")
-
-            if user_guess == "d":
-                print("Correct!")
+    if first_prompt == "y":
+        random_quote_number = random.randint(0,length_of_author_quote)
+       
+       # This is how we know which author is the correct one.
+    
+        cs_lewis = 0 <= random_quote_number <= 8
+        p_coelho = 9 <= random_quote_number <= 27
+        jk_rowling = 28 <= random_quote_number <38
+        s_king = 38 <= random_quote_number <= 48
+        n_gaiman = 49 <= random_quote_number <= 58
+        j_austen = 59 <= random_quote_number <= 66
+        h_murakami = 67 <= random_quote_number <= 77
+        jrr_tolkien = 78 <= random_quote_number <= 84
+        m_haddon = 85 <= random_quote_number <= 90
+        j_green = 91 <= random_quote_number <=98
+    
+        print(author_quote[random_quote_number])
+        for i in range(3):
+            print()
+    
+        # After we show the user a quote that is randomly generated, we ask if the user wants to play a game where they can try to guess the author.
+        # This is the tricky part.
+    
+        game = input("Would you like to guess the author for this quote? (y or n): ")
+        if game == "y":
+            
+            # I used the index number information to create conditions with booleans so that the program knows which author is the correct one.
+            if cs_lewis:
+                author = "C.S. Lewis"
+            elif p_coelho:
+                author = "Paulo Coelho"
+            elif jk_rowling:
+                author = "J.K. Rowling"
+            elif s_king:
+                author = "Stephen King"
+            elif n_gaiman:
+                author = "Neil Gaiman"
+            elif j_austen:
+                author = "Jane Austen"
+            elif h_murakami:
+                author = "Haruki Murakami"
+            elif jrr_tolkien:
+                author = "J.R.R. Tolkien"
+            elif m_haddon:
+                author = "Mark Haddon"
+            elif j_green:
+                author = "John Green"
+    
+            # For this section, I created 4 random lists. The author names are inside the 4 different lists, but spread out along with random author names that are not actually quoted.
+    
+            # For each list, the program will check if the correct author is in the list, if it is, that option will be the correct one.
+            # If it's not in the list, it will generate a different random author that is not the correct answer as part of the Multiple Choice Question.
+            
+            list_for_mcq1 = ["Stephen King", "Neil Gaiman", "J.R.R. Tolkien", "Mark Haddon","Suzanne Collins", "Ernest Cline", "Orson Scott Card"]
+            list_for_mcq2 = ["Dan Brown" , "Paulo Coelho", "James Rollins", "J.K. Rowling", "Charlotte Bronte", "Matt Haig", "Salman Rushdie"]
+            list_for_mcq3 = ["C.S. Lewis", "Sir Arthur Conan Doyle", "Jane Austen", "John Green", "John Grisham","Nicholas Sparks", "F. Scott Fitzgerald"]
+            list_for_mcq4 = ["Harlan Coben", "Haruki Murakami", "Khaled Hossaini", "Chuck Palahnuik", "Kazuo Ishiguro", "Gabriel Garcia Maruez"]
+            
+    
+            if author in list_for_mcq1:
                 print()
+                print("Who do you think is the author of this quote?")
                 print()
+                print("a. " + author)
+                length_of_mcq_answers2 = len(list_for_mcq2)
+                length_of_mcq_answers3 = len(list_for_mcq3)
+                length_of_mcq_answers4 = len(list_for_mcq4)
+                random_author2 = list_for_mcq2[random.randint(0,length_of_mcq_answers2-1)]
+                print("b. " + random_author2)
+                random_author3 = list_for_mcq3[random.randint(0,length_of_mcq_answers3-1)]
+                print("c. " + random_author3)
+                random_author4 = list_for_mcq4[random.randint(0,length_of_mcq_answers4-1)]
+                print("d. " + random_author4)
+                user_guess = input("answer either a, b, c or d: ")
+    
+                if user_guess == "a":
+                    print("Correct!")
+                    print()
+                    print()
+                    print()
+                    print("Thank you for playing!")
+                else:
+                    print()
+                    print()
+                    print("Incorrect!")
+                    print()
+                    print("The author of this quote is " + author + ".")
+                    print("That was a good try! Thank you for playing")
+                    print()
+                    print()
+    
+            # The program ends like this. I did not put an endless loop to the program. I prefer it this way. If the user would like to try the quote engine again, the program has to be restarted.
+    
+            elif author in list_for_mcq2:
                 print()
-                print("Thank you for playing!")
-            else:
+                print("Who do you think is the author of this quote?")
                 print()
+                length_of_mcq_answers1 = len(list_for_mcq1)
+                length_of_mcq_answers3 = len(list_for_mcq3)
+                length_of_mcq_answers4 = len(list_for_mcq4)
+                random_author1 = list_for_mcq1[random.randint(0,length_of_mcq_answers1-1)]
+                print("a. " + random_author1)
+                
+                print("b. " + author)
+                random_author3 = list_for_mcq3[random.randint(0,length_of_mcq_answers3-1)]
+                print("c. " + random_author3)
+                random_author4 = list_for_mcq4[random.randint(0,length_of_mcq_answers4-1)]
+                print("d. " + random_author4)
+    
+                user_guess = input("answer either a, b, c or d: ")
+    
+                if user_guess == "b":
+                    print("Correct!")
+                    print()
+                    print()
+                    print()
+                    print("Thank you for playing!")
+                else:
+                    print()
+                    print()
+                    print("Incorrect!")
+                    print()
+                    print("The author of this quote is " + author + ".")
+                    print("That was a good try! Thank you for playing!")
+                    print()
+                    print()
+    
+            # As mentioned before, if the name of the author is in list 1, the first program executes. If it's in list 2, the second program exectes, and so on and so forth. 
+            # This is a little primapive and not automated enough for a super simple program, however the randomly generated author names of the multiple choice question allows the game to still be interesting.
+    
+            elif author in list_for_mcq3:
                 print()
-                print("Incorrect!")
+                print("Who do you think is the author of this quote?")
                 print()
-                print("The author of this quote is " + author + ".")
-                print("That was a good try! Thank you for playing")
+                length_of_mcq_answers1 = len(list_for_mcq1)
+                length_of_mcq_answers2 = len(list_for_mcq2)
+                length_of_mcq_answers4 = len(list_for_mcq4)
+                random_author1 = list_for_mcq1[random.randint(0,length_of_mcq_answers1-1)]
+                print("a. " + random_author1)
+                random_author2 = list_for_mcq2[random.randint(0,length_of_mcq_answers2-1)]
+                print("b. " + random_author2)
+                
+                print("c. " + author)
+                random_author4 = list_for_mcq4[random.randint(0,length_of_mcq_answers4-1)]
+                print("d. " + random_author4)
+                user_guess = input("answer either a, b, c or d: ")
+    
+                if user_guess == "c":
+                    print("Correct!")
+                    print()
+                    print()
+                    print()
+                    print("Thank you for playing!")
+                else:
+                    print()
+                    print()
+                    print("Incorrect!")
+                    print()
+                    print("The author of this quote is " + author + ".")
+                    print("That was a good try! Thank you for playing")
+                    print()
+                    print()
+    
+            if author in list_for_mcq4:
                 print()
+                print("Who do you think is the author of this quote?")
                 print()
-
-
-
-if first_prompt == "n":
-    print("Okay! If you would want to see quotes from your favourite book! You know where to find me!")
-    print("*" * 30)
-    print("*" * 30)
-    print()
-    print()
-
-
-
-
-
-
-# The program ends when the user answer No to the first prompt. However, by design, you can just restart the program. 
-# Book Quote Buddy is designed to be used once in a while only. Not 2 to 3 hours in one go. It can also be customized to the books and author that you love. It can also be constantly updated and expanded.
+                length_of_mcq_answers1 = len(list_for_mcq1)
+                length_of_mcq_answers2 = len(list_for_mcq2)
+                length_of_mcq_answers3 = len(list_for_mcq3)
+                random_author1 = list_for_mcq1[random.randint(0,length_of_mcq_answers1-1)]
+                print("a. " + random_author1)
+                random_author2 = list_for_mcq2[random.randint(0,length_of_mcq_answers2-1)]
+                print("b. " + random_author2)
+                random_author3 = list_for_mcq3[random.randint(0,length_of_mcq_answers3-1)]
+                print("c. " + random_author3)
+        
+                print("d. " + author)
+    
+                user_guess = input("answer either a, b, c or d: ")
+    
+                if user_guess == "d":
+                    print("Correct!")
+                    print()
+                    print()
+                    print()
+                    print("Thank you for playing!")
+                else:
+                    print()
+                    print()
+                    print("Incorrect!")
+                    print()
+                    print("The author of this quote is " + author + ".")
+                    print("That was a good try! Thank you for playing")
+                    print()
+                    print()
+    
+    
+    
+    if first_prompt == "n":
+        print("Okay! If you would want to see quotes from your favourite book! You know where to find me!")
+        print("*" * 30)
+        print("*" * 30)
+        print()
+        print()
+    
+    play_again = play_again_prompt == "y"
+    print("Would you like to see another quote?")
+    play_again_prompt = input("answer y or n")
+    
+    
+    
+    
+    
+    
+    
+    # The program ends when the user answer No to the first prompt. However, by design, you can just restart the program. 
+    # Book Quote Buddy is designed to be used once in a while only. Not 2 to 3 hours in one go. It can also be customized to the books and author that you love. It can also be constantly updated and expanded.
