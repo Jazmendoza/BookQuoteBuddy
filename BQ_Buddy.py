@@ -201,10 +201,6 @@ if first_prompt == "y":
         list_for_mcq2 = ["Dan Brown" , "Paulo Coelho", "James Rollins", "J.K. Rowling", "Charlotte Bronte", "Matt Haig", "Salman Rushdie"]
         list_for_mcq3 = ["C.S. Lewis", "Sir Arthur Conan Doyle", "Jane Austen", "John Green", "John Grisham","Nicholas Sparks", "F. Scott Fitzgerald"]
         list_for_mcq4 = ["Harlan Coben", "Haruki Murakami", "Khaled Hossaini", "Chuck Palahnuik", "Kazuo Ishiguro", "Gabriel Garcia Maruez"]
-        length_of_mcq_answers1 = len(list_for_mcq1)
-        length_of_mcq_answers2 = len(list_for_mcq2)
-        length_of_mcq_answers3 = len(list_for_mcq3)
-        length_of_mcq_answers4 = len(list_for_mcq4)
         
 
         if author in list_for_mcq1:
@@ -212,11 +208,14 @@ if first_prompt == "y":
             print("Who do you think is the author of this quote?")
             print()
             print("a. " + author)
-            random_author2 = list_for_mcq2[random.randint(0,length_of_mcq_answers2)]
+            length_of_mcq_answers2 = len(list_for_mcq2)
+            length_of_mcq_answers3 = len(list_for_mcq3)
+            length_of_mcq_answers4 = len(list_for_mcq4)
+            random_author2 = list_for_mcq2[random.randint(0,length_of_mcq_answers2-1)]
             print("b. " + random_author2)
-            random_author3 = list_for_mcq3[random.randint(0,length_of_mcq_answers3)]
+            random_author3 = list_for_mcq3[random.randint(0,length_of_mcq_answers3-1)]
             print("c. " + random_author3)
-            random_author4 = list_for_mcq4[random.randint(0,length_of_mcq_answers4)]
+            random_author4 = list_for_mcq4[random.randint(0,length_of_mcq_answers4-1)]
             print("d. " + random_author4)
             user_guess = input("answer either a, b, c or d: ")
 
@@ -227,6 +226,8 @@ if first_prompt == "y":
                 print()
                 print("Thank you for playing!")
             else:
+                print()
+                print()
                 print("Incorrect!")
                 print()
                 print("The author of this quote is " + author + ".")
@@ -240,13 +241,16 @@ if first_prompt == "y":
             print()
             print("Who do you think is the author of this quote?")
             print()
-            random_author1 = list_for_mcq1[random.randint(0,length_of_mcq_answers1)]
+            length_of_mcq_answers1 = len(list_for_mcq1)
+            length_of_mcq_answers3 = len(list_for_mcq3)
+            length_of_mcq_answers4 = len(list_for_mcq4)
+            random_author1 = list_for_mcq1[random.randint(0,length_of_mcq_answers1-1)]
             print("a. " + random_author1)
             
             print("b. " + author)
-            random_author3 = list_for_mcq3[random.randint(0,length_of_mcq_answers3)]
+            random_author3 = list_for_mcq3[random.randint(0,length_of_mcq_answers3-1)]
             print("c. " + random_author3)
-            random_author4 = list_for_mcq4[random.randint(0,length_of_mcq_answers4)]
+            random_author4 = list_for_mcq4[random.randint(0,length_of_mcq_answers4-1)]
             print("d. " + random_author4)
 
             user_guess = input("answer either a, b, c or d: ")
@@ -258,10 +262,12 @@ if first_prompt == "y":
                 print()
                 print("Thank you for playing!")
             else:
+                print()
+                print()
                 print("Incorrect!")
                 print()
                 print("The author of this quote is " + author + ".")
-                print("That was a good try! Thank you for playing")
+                print("That was a good try! Thank you for playing!")
                 print()
                 print()
 
@@ -272,13 +278,16 @@ if first_prompt == "y":
             print()
             print("Who do you think is the author of this quote?")
             print()
-            random_author1 = list_for_mcq1[random.randint(0,length_of_mcq_answers1)]
+            length_of_mcq_answers1 = len(list_for_mcq1)
+            length_of_mcq_answers2 = len(list_for_mcq2)
+            length_of_mcq_answers4 = len(list_for_mcq4)
+            random_author1 = list_for_mcq1[random.randint(0,length_of_mcq_answers1-1)]
             print("a. " + random_author1)
-            random_author2 = list_for_mcq2[random.randint(0,length_of_mcq_answers2)]
+            random_author2 = list_for_mcq2[random.randint(0,length_of_mcq_answers2-1)]
             print("b. " + random_author2)
             
             print("c. " + author)
-            random_author4 = list_for_mcq4[random.randint(0,length_of_mcq_answers4)]
+            random_author4 = list_for_mcq4[random.randint(0,length_of_mcq_answers4-1)]
             print("d. " + random_author4)
             user_guess = input("answer either a, b, c or d: ")
 
@@ -289,6 +298,8 @@ if first_prompt == "y":
                 print()
                 print("Thank you for playing!")
             else:
+                print()
+                print()
                 print("Incorrect!")
                 print()
                 print("The author of this quote is " + author + ".")
@@ -300,11 +311,14 @@ if first_prompt == "y":
             print()
             print("Who do you think is the author of this quote?")
             print()
-            random_author1 = list_for_mcq1[random.randint(0,length_of_mcq_answers1)]
+            length_of_mcq_answers1 = len(list_for_mcq1)
+            length_of_mcq_answers2 = len(list_for_mcq2)
+            length_of_mcq_answers3 = len(list_for_mcq3)
+            random_author1 = list_for_mcq1[random.randint(0,length_of_mcq_answers1-1)]
             print("a. " + random_author1)
-            random_author2 = list_for_mcq2[random.randint(0,length_of_mcq_answers2)]
+            random_author2 = list_for_mcq2[random.randint(0,length_of_mcq_answers2-1)]
             print("b. " + random_author2)
-            random_author3 = list_for_mcq3[random.randint(0,length_of_mcq_answers3)]
+            random_author3 = list_for_mcq3[random.randint(0,length_of_mcq_answers3-1)]
             print("c. " + random_author3)
     
             print("d. " + author)
@@ -318,6 +332,8 @@ if first_prompt == "y":
                 print()
                 print("Thank you for playing!")
             else:
+                print()
+                print()
                 print("Incorrect!")
                 print()
                 print("The author of this quote is " + author + ".")
